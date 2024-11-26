@@ -77,6 +77,86 @@
  
  
         }
+
+            /* Metodo para insertar nuevo personaje */
+
+    public function insert($nombre, $descripcion, $talles, $stock, $precio, $imagen)
+    {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "INSERT INTO personajes(id,nombre,descripcion,talles,stock,precio,imagen) 
+                     VALUES (NULL,:nombre,:descripcion,:talles,:stock, :precio,:imagen )";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute(
+            [
+                'nombre' => $nombre,
+                'descripcion'  => $descripcion,
+                'talles' => $talles,
+                'stock' => $stock,
+                'precio' => $precio,
+                'imagen' => $imagen
+            ]
+        );
+    }
+
+     /* metodo para editar un personaje  */
+
+     public function edit($nombre, $descripcion, $talles, $stock, $precio, $id)
+     {
+ 
+         $conexion = (new Conexion())->getConexion();
+ 
+         $query = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, talles = :talles, stock = :stock, precio = :precio WHERE id = :id";
+ 
+         $PDOStatment = $conexion->prepare($query);
+ 
+         $PDOStatment->execute(
+             [
+                 'id' => $id,
+                 'nombre' => $nombre,
+                 'descripcion'  => $descripcion,
+                 'talles' => $talles,
+                 'stock' => $stock,
+                 'precio' => $precio,
+                 
+             ]
+         );
+     }
+ 
+     /* Metodo Reemplazar Imagen */
+ 
+     public function reemplazar_imagen($imagen, $id)
+     {
+ 
+         $conexion = (new Conexion())->getConexion();
+ 
+         $query = "UPDATE personajes SET imagen = :imagen WHERE id = :id";
+ 
+         $PDOStatment = $conexion->prepare($query);
+ 
+         $PDOStatment->execute(
+             [
+                 'id' => $id,
+                 'imagen' => $imagen
+                 
+             ]
+         );
+     }
+ 
+     /* Borrar personaje */
+ 
+     public function delete() {
+         $conexion = (new Conexion())->getConexion();
+ 
+         $query = "DELETE FROM personajes WHERE id  = ?";
+ 
+         $PDOStatment = $conexion->prepare($query);
+ 
+         $PDOStatment->execute([$this->id]);
+     }
  
        
 
