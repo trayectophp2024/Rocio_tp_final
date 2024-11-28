@@ -8,7 +8,7 @@ $miProductoCatalogo = new Producto();
 $producto = $miProductoCatalogo->catalogo_x_categoria($id_categoria);
 
 
-$catalogo = (new Catalogo())->get_x_id($id_categoria); 
+$catalogo = (new Catalogo())->catalogo_x_id($id_categoria); 
 
 
 ?>

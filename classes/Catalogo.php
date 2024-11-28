@@ -25,7 +25,7 @@ class Catalogo
     }
 
     // devuelve los datos de un personaje en particular 
-    public function get_x_id(int $id)
+    public function catalogo_x_id(int $id)
     {
 
 
@@ -46,6 +46,57 @@ class Catalogo
 
         return $resultado;
     }
+
+
+        /* Metodo para insertar nuevo personaje */
+
+        public function insert($nombre)
+        {
+    
+            $conexion = (new Conexion())->getConexion();
+    
+            $query = "INSERT INTO catalogo(id,nombre) 
+                         VALUES (NULL,:nombre)";
+    
+            $PDOStatment = $conexion->prepare($query);
+    
+            $PDOStatment->execute(
+                [
+                    'nombre' => $nombre,
+                ]
+            );
+        }
+    
+        /* metodo para editar un personaje  */
+    
+        public function edit($nombre, $id)
+        {
+    
+            $conexion = (new Conexion())->getConexion();
+    
+            $query = "UPDATE catalogo SET nombre = :nombre WHERE id = :id";
+    
+            $PDOStatment = $conexion->prepare($query);
+    
+            $PDOStatment->execute(
+                [
+                    'id' => $id,
+                    'nombre' => $nombre,
+                    
+                ]
+            );
+        }
+        /* Borrar Personaje  */
+    
+        public function delete() {
+            $conexion = (new Conexion())->getConexion();
+    
+            $query = "DELETE FROM catalogo WHERE id  = ?";
+    
+            $PDOStatment = $conexion->prepare($query);
+    
+            $PDOStatment->execute([$this->id]);
+        }
 
     public function getId()
     {

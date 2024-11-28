@@ -22,6 +22,7 @@ $productos = (new Producto())->catalogo_completo();
                         <th scope="col">Talles</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

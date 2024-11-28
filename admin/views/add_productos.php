@@ -1,3 +1,9 @@
+<?php
+
+$producto = (new Catalogo())->catalogo_completo();
+
+?>
+
 <div class="row -my-5">
     <div class="col">
             <h1 class="text-center mb-5">Agregar Nuevo Producto</h1>
@@ -8,6 +14,17 @@
                         <div class="col-6 mb-3">
                             <label class="form-label" for="nombre">Nombre:</label>
                             <input type="text" class="form-control" name="nombre" id="nombre"  required>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label class="form-label" for="categoria">Categoria</label>
+                            <select class="form-select" name="id_catalogo" id="id_catalogo">
+                                <option value="" selected disabled>Elija una opcion</option>
+                                <?php foreach($producto as $ropa){ ?>
+                                        <option value="<?= $ropa->getId() ?>"   ><?= $ropa->getNombre() ?></option>
+
+                                <?php } ?>  
+                            </select>
                         </div>
 
                         <div class="col-6 mb-3">

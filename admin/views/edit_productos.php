@@ -5,7 +5,6 @@
 
 ?>
 
-
 <div class="row -my-5">
     <div class="col">
             <h1 class="text-center mb-5">Editar Producto</h1>
@@ -36,7 +35,7 @@
 
                         <div class="col-6 mb-3">
                             <label class="form-label" for="talles">Talles:</label>
-                            <input type="text" class="form-control" name="talles" id="talles" max="9999" required  value="<?= $producto->getTalles() ?>">
+                            <input type="text" class="form-control" name="talles" id="talles"required  value="<?= $producto->getTalles() ?>">
                         </div>
 
                         

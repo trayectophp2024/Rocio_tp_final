@@ -26,13 +26,13 @@
 
     try {
 
-        $imagen = (new Imagen())->subirImagen(__DIR__ . "/../../img/personajes", $fileData);
+        $imagen = (new Imagen())->subirImagen(__DIR__ . "/../../img/", $fileData);
 
-        (new Producto())->insert($postData['nombre'],$postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $imagen);
+        (new Producto())->insert($postData['nombre'], $postData['id_catalogo'], $postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $imagen);
 
-        header("Location: ../index.php?sec=admin_personajes");
+        header("Location: ../index.php?sec=admin_productos");
     } catch (\Exception $e) {
-        die("No se pudo cargar el personaje".  $e);
+        die("No se pudo cargar el producto".  $e);
     }
 
 

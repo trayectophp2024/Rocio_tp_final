@@ -30,6 +30,22 @@ $secciones_validas = [
     "titulo" => "Borrar producto",
     "restringido" => TRUE,
    ],
+   "admin_catalogo"=> [
+    "titulo" => "Administracion de catalogo",
+    "restringido" => TRUE,
+   ],
+   "add_catalogo" => [
+    "titulo" => "Agregar Categoria",
+    "restringido" => TRUE,
+   ],
+   "edit_catalogo" => [
+    "titulo" => "Editar Categoria",
+    "restringido" => TRUE,
+   ],
+   "delete_catalogo" => [
+    "titulo" => "Borrar Categoria",
+    "restringido" => TRUE,
+   ]
   ];
 
 
@@ -64,26 +80,26 @@ $secciones_validas = [
   <div class="p-3 mb-2 bg-black text-white">
   <nav class="navbar navbar-expand-lg  "> 
   <div class="container-fluid ">
-    <a class="navbar-brand text-white" href="index.php?cat=home"><img width="50" height="50" src="../img/logo.png" alt=""> <span style="color: #E493B3;">Lopz</span> Indumentaria</a>
+    <a class="navbar-brand text-white" href="../index.php" target="_blank"><img width="50" height="50" src="../img/logo.png" alt=""> <span style="color: #E493B3;">Lopz</span> Indumentaria</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="index.php?sec=dashboard">Dashboard</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?> active text-white" aria-current="page" href="index.php?sec=dashboard">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="index.php?sec=admin_productos">Admin de Productos</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?> active text-white" aria-current="page" href="index.php?sec=admin_productos">Admin de Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="index.php?sec=dashboard">Admin de Catalogo</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?> active text-white" aria-current="page" href="index.php?sec=admin_catalogo">Admin de Catalogo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="index.php?sec=dashboard">Logini</a>
+          <a class="nav-link  <?= $userData ? "d-none" : "" ?> active text-white" aria-current="page" href="index.php?sec=login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="index.php?sec=dashboard">LogOut</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?> active text-white" aria-current="page" href="actions/auth_logout.php">LogOut</a>
         </li>
        
        

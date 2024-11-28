@@ -80,19 +80,20 @@
 
             /* Metodo para insertar nuevo personaje */
 
-    public function insert($nombre, $descripcion, $talles, $stock, $precio, $imagen)
+    public function insert($nombre, $id_catalogo, $descripcion, $talles, $stock, $precio, $imagen)
     {
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "INSERT INTO personajes(id,nombre,descripcion,talles,stock,precio,imagen) 
-                     VALUES (NULL,:nombre,:descripcion,:talles,:stock, :precio,:imagen )";
+        $query = "INSERT INTO productos(id,nombre, id_catalogo, descripcion,talles,stock,precio,imagen) 
+                     VALUES (NULL,:nombre, :id_catalogo, :descripcion,:talles,:stock, :precio,:imagen )";
 
         $PDOStatment = $conexion->prepare($query);
 
         $PDOStatment->execute(
             [
                 'nombre' => $nombre,
+                'id_catalogo' => $id_catalogo,
                 'descripcion'  => $descripcion,
                 'talles' => $talles,
                 'stock' => $stock,
@@ -133,7 +134,7 @@
  
          $conexion = (new Conexion())->getConexion();
  
-         $query = "UPDATE personajes SET imagen = :imagen WHERE id = :id";
+         $query = "UPDATE productos SET imagen = :imagen WHERE id = :id";
  
          $PDOStatment = $conexion->prepare($query);
  
@@ -151,7 +152,7 @@
      public function delete() {
          $conexion = (new Conexion())->getConexion();
  
-         $query = "DELETE FROM personajes WHERE id  = ?";
+         $query = "DELETE FROM productos WHERE id  = ?";
  
          $PDOStatment = $conexion->prepare($query);
  
