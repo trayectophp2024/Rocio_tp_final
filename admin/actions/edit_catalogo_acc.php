@@ -13,6 +13,9 @@
         
         $categoria->edit($postData['nombre'], $id);
 
+        
+        (new Alerta())->add_alerta("warning", "El producto se edito correctamente");
+
         header("Location: ../index.php?sec=admin_catalogo");
     } catch (\Exception $e) {
         die("No se pudo cargar el producto".  $e);

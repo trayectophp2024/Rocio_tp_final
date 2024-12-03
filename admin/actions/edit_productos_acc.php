@@ -9,6 +9,7 @@
 
     $fileData = $_FILES['imagen'] ?? FALSE;
 
+
     try {
 
         $producto = new Producto();
@@ -26,6 +27,7 @@
 
         $producto->edit($postData['nombre'],$postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $id);
 
+        (new Alerta())->add_alerta("warning", "El producto se edito correctamente");
         header("Location: ../index.php?sec=admin_productos");
     } catch (\Exception $e) {
         die("No se pudo cargar el producto".  $e);

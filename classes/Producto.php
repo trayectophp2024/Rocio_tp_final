@@ -158,11 +158,7 @@
  
          $PDOStatment->execute([$this->id]);
      }
- 
-       
-
-
-    
+     
         /**
          * Get the value of id
          */ 

@@ -7,11 +7,14 @@ $productos = (new Producto())->catalogo_completo();
 
 ?>
 
-
 <div class="row my-5">
     <div class="col">
         <h1 class="text-center mb-5">Administracion de Productos</h1>
         <div class="row mb-5 d-flex align-items-center">
+
+        <div>
+            <?= (new Alerta())->get_alertas() ?>
+         </div>
             <table class="table">
                 <thead>
                     <tr>

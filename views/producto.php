@@ -11,7 +11,6 @@ $ropa = $miObjetoProducto->producto_x_id($id);
 
 <div class="row">
      <?php if(isset($ropa)) { ?>
-       <h1 class="text-center my-5"><?=$ropa->getNombre()?></h1>
        <div class="col">
             <div class="card mb-5" style="background-color: #FFD0D0">
                 <div class="row g-0">
@@ -23,14 +22,12 @@ $ropa = $miObjetoProducto->producto_x_id($id);
                                 <p class="fs-4 m-0 fw-bold text-danger"></p>
                                 <h2 class="card-title fs-2 mb-4"><?= $ropa->getNombre() ?></h2>
                                 <p class="card-text"><?=$ropa->getDescripcion()?></p>
+                                <p class="card-text">Talles disponibles: <?=$ropa->getTalles()?></p>
+                                <div class="card-text">Unidades: <?=$ropa->getStock()?></div>
                             </div>
-                            <ul class="list-group">
-                                <li class="list-group-item" style="background-color: #FFD0D0"><?=$ropa->getTalles()?></li>
-                                <li class="list-group-item" style="background-color: #FFD0D0"><?=$ropa->getStock()?></li>
-                            </ul>
 
                             <div class="card-body">
-                                 <h2 class="card-title fs-6 mb-4 text-danger">Medios de Pago</h2>
+                                 <h2 class="card-title fs-6 mb-4 text-danger">Medios de Pago:</h2>
                                  <div class="d-flex">
                                      <i class="fa-brands fa-cc-visa me-3 fs-3 text-info"></i>
                                      <i class="fa-brands fa-cc-mastercard me-3 fs-3 text-warning"></i>
