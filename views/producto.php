@@ -8,6 +8,16 @@ $ropa = $miObjetoProducto->producto_x_id($id);
 
 ?>
 
+<!-- <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Library</li>
+  </ol>
+</nav> -->
+
+<div class="mt-5 mb-3">
+    <h2 class="text-center display-1" style="background-color: #D0E8C5;" >Detalles del Producto</h2>
+</div>
 
 <div class="row">
      <?php if(isset($ropa)) { ?>
@@ -20,14 +30,14 @@ $ropa = $miObjetoProducto->producto_x_id($id);
                         <div class="col-7 d-flex flex-column p-3 ">
                             <div class="card-body flex-grow-0">
                                 <p class="fs-4 m-0 fw-bold text-danger"></p>
-                                <h2 class="card-title fs-2 mb-4"><?= $ropa->getNombre() ?></h2>
+                                <h3 class="card-title fs-2 mb-4"><?= $ropa->getNombre() ?></h3>
                                 <p class="card-text"><?=$ropa->getDescripcion()?></p>
                                 <p class="card-text">Talles disponibles: <?=$ropa->getTalles()?></p>
                                 <div class="card-text">Unidades: <?=$ropa->getStock()?></div>
                             </div>
 
                             <div class="card-body">
-                                 <h2 class="card-title fs-6 mb-4 text-danger">Medios de Pago:</h2>
+                                 <h3 class="card-title fs-6 mb-4 text-danger">Medios de Pago:</h3>
                                  <div class="d-flex">
                                      <i class="fa-brands fa-cc-visa me-3 fs-3 text-info"></i>
                                      <i class="fa-brands fa-cc-mastercard me-3 fs-3 text-warning"></i>
@@ -37,8 +47,10 @@ $ropa = $miObjetoProducto->producto_x_id($id);
                             </div>
                             
                             <div class="card-body">
-                                <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?=$ropa->getPrecio() ?></p>
-                                <a href="#" class="btn btn-outline-info w-100 fw-bold" >COMPRAR</a>
+                                <p class="fs-3 mb-3 fw-bold text-center">$<?=$ropa->getPrecio() ?></p>
+                                <div class="d-flex justify-content-center">
+                                    <a href="#" class="btn btn-danger w-50 fw-bold">COMPRAR</a>
+                                </div>
                             </div>
 
 

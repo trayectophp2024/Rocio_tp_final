@@ -2,6 +2,7 @@
     $id = $_GET['id'] ?? FALSE;
 
     $producto = (new Producto())->producto_x_id($id);
+    $categoria = (new Catalogo())->catalogo_completo();
 
 ?>
 
@@ -15,6 +16,19 @@
                         <div class="col-6 mb-3">
                             <label class="form-label" for="nombre">Nombre:</label>
                             <input type="text" class="form-control" name="nombre" id="nombre" value="<?= $producto->getNombre() ?>"  required>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label class="form-label" for="id_serie">Serie</label>
+                            <select class="form-select" name="id_serie" id="id_serie">
+                                <option value="" selected disabled>Elija una opcion</option>
+                                <?php foreach($categoria as $c){ ?>
+                                        <option value="<?= $c->getId() ?>" <?= $c->getId() == $producto->getId_catalogo() ? "selected" : ""?>><?= $c->getNombre()?></option>
+
+                                <?php } ?>  
+
+
+                            </select>
                         </div>
 
                         <div class="col-6 mb-3">
@@ -47,6 +61,12 @@
                             <label class="form-label" for="precio">Precio</label>
                             <textarea name="precio" id="precio" class="form-control"><?= $producto->getPrecio() ?></textarea>
                           
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label class="form-label" for="destacado">Destacado:</label>
+                            <input type="text" class="form-control" name="destacado" id="destacado"required  value="<?= $producto->getDestacado() ?>">
+                            <div class="form-text">En caso de ser Jean poner 1, Remera poner 2, Campera poner 3, en caso de no destacar poner 0</div>
                         </div>
 
                         <button type="submit" class="btn btn-warning">Editar Producto</button>

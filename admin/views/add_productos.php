@@ -39,7 +39,7 @@ $producto = (new Catalogo())->catalogo_completo();
 
                         <div class="col-6 mb-3">
                             <label class="form-label" for="talles">Talles:</label>
-                            <input type="text" class="form-control" name="talles" id="talles" max="9999" required>
+                            <input type="text" class="form-control" name="talles" id="talles" required>
                         </div>
 
                         
@@ -53,6 +53,12 @@ $producto = (new Catalogo())->catalogo_completo();
                             <textarea name="precio" id="precio" class="form-control"></textarea>
                           
                         </div>
+
+                        <div class="col-6 mb-3">
+                    <label class="form-label" for="destacado">Destacado</label>
+                    <input type="text" class="form-control" name="destacado" id="destacado" required>
+                    <div class="form-text">En caso de ser Jean poner 1, Remera poner 2, Campera poner 3, en caso de no destacar poner 0</div>
+                </div>
 
                         <button type="submit" class="btn btn-primary">Cargar Producto</button>
 

@@ -9,6 +9,7 @@
         protected $stock;
         protected $imagen;
         protected $precio;
+        protected $destacado;
 
                  //Metodos
         // Devuelve el catologo Completo
@@ -78,15 +79,62 @@
  
         }
 
+        //Devuelve los productos destacados
+
+public function destacadoJean() {
+    $conexion = (new Conexion())->getConexion();
+    $query = "SELECT * FROM productos WHERE destacado = 1";
+    $PDOStatment = $conexion->prepare($query);
+    $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatment->execute();
+
+    $resultado = $PDOStatment->fetchAll();
+    
+    // Devolvemos un array vacío si no hay resultados
+    return $resultado;
+}
+
+//Devuelve los productos destacados
+
+public function destacadoRemeras() {
+    $conexion = (new Conexion())->getConexion();
+    $query = "SELECT * FROM productos WHERE destacado = 2";
+    $PDOStatment = $conexion->prepare($query);
+    $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatment->execute();
+
+    $resultado = $PDOStatment->fetchAll();
+    
+    // Devolvemos un array vacío si no hay resultados
+    return $resultado;
+}
+
+//Devuelve los productos destacados
+
+public function destacadoCamperas() {
+    $conexion = (new Conexion())->getConexion();
+    $query = "SELECT * FROM productos WHERE destacado = 3";
+    $PDOStatment = $conexion->prepare($query);
+    $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+    $PDOStatment->execute();
+
+    $resultado = $PDOStatment->fetchAll();
+    
+    // Devolvemos un array vacío si no hay resultados
+    return $resultado;
+}
+
+
+
             /* Metodo para insertar nuevo personaje */
 
-    public function insert($nombre, $id_catalogo, $descripcion, $talles, $stock, $precio, $imagen)
+    public function insert($nombre, $id_catalogo, $descripcion, $talles, $stock, $precio, $destacado, $imagen)
     {
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "INSERT INTO productos(id,nombre, id_catalogo, descripcion,talles,stock,precio,imagen) 
-                     VALUES (NULL,:nombre, :id_catalogo, :descripcion,:talles,:stock, :precio,:imagen )";
+        $query = "INSERT INTO productos(id,nombre, id_catalogo, descripcion,talles,stock,precio, destacado, imagen) 
+                     VALUES (NULL,:nombre, :id_catalogo, :descripcion,:talles,:stock, :precio, :destacado, :imagen )";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -98,6 +146,7 @@
                 'talles' => $talles,
                 'stock' => $stock,
                 'precio' => $precio,
+                'destacado' => $destacado,
                 'imagen' => $imagen
             ]
         );
@@ -105,12 +154,12 @@
 
      /* metodo para editar un personaje  */
 
-     public function edit($nombre, $descripcion, $talles, $stock, $precio, $id)
+     public function edit($nombre, $descripcion, $talles, $stock, $precio, $destacado, $id)
      {
  
          $conexion = (new Conexion())->getConexion();
  
-         $query = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, talles = :talles, stock = :stock, precio = :precio WHERE id = :id";
+         $query = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, talles = :talles, stock = :stock, precio = :precio, destacado = :destacado WHERE id = :id";
  
          $PDOStatment = $conexion->prepare($query);
  
@@ -122,7 +171,7 @@
                  'talles' => $talles,
                  'stock' => $stock,
                  'precio' => $precio,
-                 
+                 'destacado' => $destacado
              ]
          );
      }
@@ -223,6 +272,14 @@
                 return $this->precio;
         }
 
+
+        /**
+         * Get the value of destacado
+         */ 
+        public function getDestacado()
+        {
+                return $this->destacado;
+        }
     }
 
     

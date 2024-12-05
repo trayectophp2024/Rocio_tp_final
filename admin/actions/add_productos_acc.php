@@ -28,7 +28,7 @@
 
         $imagen = (new Imagen())->subirImagen(__DIR__ . "/../../img/", $fileData);
 
-        (new Producto())->insert($postData['nombre'], $postData['id_catalogo'], $postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $imagen);
+        (new Producto())->insert($postData['nombre'], $postData['id_catalogo'], $postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $postData['destacado'], $imagen);
 
         (new Alerta())->add_alerta("success", "El producto se cargo correctamente");
 

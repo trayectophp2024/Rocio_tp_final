@@ -25,7 +25,7 @@
         }
 
 
-        $producto->edit($postData['nombre'],$postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $id);
+        $producto->edit($postData['nombre'],$postData['id_catalogo'], $postData['descripcion'],$postData['talles'],$postData['stock'],$postData['precio'], $postData['destacado'], $id);
 
         (new Alerta())->add_alerta("warning", "El producto se edito correctamente");
         header("Location: ../index.php?sec=admin_productos");

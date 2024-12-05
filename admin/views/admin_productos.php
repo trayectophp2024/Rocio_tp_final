@@ -25,6 +25,7 @@ $productos = (new Producto())->catalogo_completo();
                         <th scope="col">Talles</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Destacado</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -40,6 +41,7 @@ $productos = (new Producto())->catalogo_completo();
                         <td><?=  $ropa->getTalles() ?></td>
                         <td><?=  $ropa->getstock() ?></td>
                         <td><?=  $ropa->getPrecio() ?></td>
+                        <td><?=  $ropa->getDestacado() ?></td>
                         <td>
                             <a class="btn btn-warning" href="index.php?sec=edit_productos&id=<?= $ropa->getId() ?>">Editar</a>
 

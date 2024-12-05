@@ -12,8 +12,10 @@ $catalogo = (new Catalogo())->catalogo_x_id($id_categoria);
 
 
 ?>
+<div class="mt-5 mb-3">
+    <h1 class="text-center display-1" style="background-color: #D0E8C5;">Catalogo de <?=  $catalogo->getNombre(); ?></h1>
+</div>
 
-<h1 class="text-center my-5 " style="color: #AD88C6;">Catalogo de <?=  $catalogo->getNombre(); ?> </h1>
 <div class="row">
 
     <?php if(count($producto))  {   ?> 
