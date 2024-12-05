@@ -40,7 +40,7 @@ $categoria = (new Catalogo())->catalogo_completo();
                 </tbody>
             </table>
 
-                    <a class="btn btn-primary mt-5" href="index.php?sec=add_categorias">Cargar Nuevo Categoria</a>
+                    <a class="btn btn-primary mt-5" href="index.php?sec=add_catalogo">Cargar Nuevo Categoria</a>
 
         </div>
     </div>
