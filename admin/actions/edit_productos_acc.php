@@ -9,7 +9,14 @@
 
     $fileData = $_FILES['imagen'] ?? FALSE;
 
+/*     echo "<pre>";
 
+    echo var_dump($postData);
+
+    echo "</pre>";
+
+    die();
+ */
     try {
 
         $producto = new Producto();
@@ -19,7 +26,7 @@
                 (new Imagen())->borrarImagen(__DIR__ . "/../../img/" . $postData['imagen_og']);
             }
 
-            $imagen = (new Imagen())->subirImagen(__DIR__ . "/../../img/", $fileData);
+            $imagen = (new Imagen())->subirImagen(__DIR__ . "/../../img", $fileData);
 
             $producto->reemplazar_imagen($imagen, $id);
         }

@@ -13,7 +13,7 @@ $catalogo = (new Catalogo())->catalogo_x_id($id_categoria);
 
 ?>
 <div class="mt-5 mb-3">
-    <h1 class="text-center display-1" style="background-color: #D0E8C5;">Catalogo de <?=  $catalogo->getNombre(); ?></h1>
+    <h2 class="text-center" style="background-color: #D0E8C5;">Catalogo de <?=  $catalogo->getNombre(); ?></h2>
 </div>
 
 <div class="row">

@@ -3,9 +3,7 @@
 <div class="row">
     <h1 class="text-center mb-5 fw-bold" >PANEL DE CONTROL</h1>
 
-    <div>
-            <?= (new Alerta())->get_alertas() ?>
-         </div>
-    <h2 class="text-center">Bienvenido Administrador/a <?=$userData['username'] ?></h2>
+  
+    <h2 class="text-center">Bienvenido Administrador/a <span class="text-success text-uppercase fw-bold"><?=$userData['username'] ?></span></h2>
     </div>
 </div>

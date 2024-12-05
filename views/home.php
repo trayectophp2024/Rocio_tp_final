@@ -1,8 +1,8 @@
 <?php
-$miObjetoBici = new Producto();
-$productos = $miObjetoBici->destacadoJean();
-$productos2 = $miObjetoBici->destacadoRemeras();
-$productos3 = $miObjetoBici->destacadoCamperas();
+$miObjeto = new Producto();
+$productos = $miObjeto->destacadoJean();
+$productos2 = $miObjeto->destacadoRemeras();
+$productos3 = $miObjeto->destacadoCamperas();
 ?>
 
 
@@ -61,7 +61,7 @@ $productos3 = $miObjetoBici->destacadoCamperas();
     <?php } ?>
 </div>
 <div class="d-flex justify-content-center">
-<a href="index.php?sec=categoria&cat=1" class="btn btn  fw-bold fs-4" style="text-decoration: none; color:white; background-color: #79AC78;">Ver más Remeras</a>
+<a href="index.php?sec=categoria&cat=2" class="btn btn  fw-bold fs-4" style="text-decoration: none; color:white; background-color: #79AC78;">Ver más Remeras</a>
 </div>
 
 <div class="mt-5 mb-3">
@@ -86,7 +86,7 @@ $productos3 = $miObjetoBici->destacadoCamperas();
 </div>
 
 <div class="d-flex justify-content-center">
-<a href="index.php?sec=categoria&cat=1" class="btn btn  fw-bold fs-4" style="text-decoration: none; color:white; background-color: #79AC78;">Ver más Camperas</a>
+<a href="index.php?sec=categoria&cat=3" class="btn btn  fw-bold fs-4" style="text-decoration: none; color:white; background-color: #79AC78;">Ver más Camperas</a>
 </div>
 
 
@@ -94,7 +94,7 @@ $productos3 = $miObjetoBici->destacadoCamperas();
 <div class="mt-1 mb-5">
 <h2 class="text-center m-4" style="background-color: #D0E8C5;">Todos los productos</h2>
 
-        <a href="index.php?sec=todos">
+                <a href="index.php?sec=todos">
             <img width="400" class="d-block mx-auto" src="img/catalogo.webp" alt="">
         </a>
 

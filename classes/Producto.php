@@ -154,12 +154,12 @@ public function destacadoCamperas() {
 
      /* metodo para editar un personaje  */
 
-     public function edit($nombre, $descripcion, $talles, $stock, $precio, $destacado, $id)
+     public function edit($nombre, $id_catalogo, $descripcion, $talles, $stock, $precio, $destacado, $id)
      {
  
          $conexion = (new Conexion())->getConexion();
  
-         $query = "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, talles = :talles, stock = :stock, precio = :precio, destacado = :destacado WHERE id = :id";
+         $query = "UPDATE productos SET nombre = :nombre, id_catalogo = :id_catalogo,  descripcion = :descripcion, talles = :talles, stock = :stock, precio = :precio, destacado = :destacado WHERE id = :id";
  
          $PDOStatment = $conexion->prepare($query);
  
@@ -167,6 +167,7 @@ public function destacadoCamperas() {
              [
                  'id' => $id,
                  'nombre' => $nombre,
+                 'id_catalogo' => $id_catalogo,
                  'descripcion'  => $descripcion,
                  'talles' => $talles,
                  'stock' => $stock,

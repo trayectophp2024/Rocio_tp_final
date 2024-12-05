@@ -19,8 +19,8 @@
                         </div>
 
                         <div class="col-6 mb-3">
-                            <label class="form-label" for="id_serie">Serie</label>
-                            <select class="form-select" name="id_serie" id="id_serie">
+                            <label class="form-label" for="id_serie">Catalogo</label>
+                            <select class="form-select" name="id_catalogo" id="id_catalogo">
                                 <option value="" selected disabled>Elija una opcion</option>
                                 <?php foreach($categoria as $c){ ?>
                                         <option value="<?= $c->getId() ?>" <?= $c->getId() == $producto->getId_catalogo() ? "selected" : ""?>><?= $c->getNombre()?></option>
@@ -35,6 +35,8 @@
                             <label class="form-label" for="descripcion">Descripcion:</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcion" value="<?= $producto->getDescripcion() ?>" required>
                         </div>
+
+
 
                         <div class="col-2 mb-3">
                             <label class="form-label" for="imagen">Imagen Actual:</label>
@@ -54,11 +56,11 @@
 
                         
                         <div class="col-12 mb-3">
-                            <label class="form-label" for="stock">Stock</label>
+                            <label class="form-label" for="stock">Stock:</label>
                             <input type="number" class="form-control" name="stock" id="stock" value="<?= $producto->getStock() ?>"  required>
 
                         <div class="col-12 mb-3">
-                            <label class="form-label" for="precio">Precio</label>
+                            <label class="form-label" for="precio">Precio:</label>
                             <textarea name="precio" id="precio" class="form-control"><?= $producto->getPrecio() ?></textarea>
                           
                         </div>
